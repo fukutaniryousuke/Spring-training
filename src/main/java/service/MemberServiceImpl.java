@@ -6,6 +6,13 @@ import entity.Member;
 
 public class MemberServiceImpl implements MemberService {
 
+	private static MemberServiceImpl singleton = new MemberServiceImpl();
+	
+	private MemberServiceImpl() {};
+	
+	public static MemberServiceImpl getInstnce() {
+		return singleton;
+	}
 	@Override
 	public String greet(int i) {
 		String[] greetings = { "Good Morning", "Hello", "Good evening" };
@@ -21,6 +28,15 @@ public class MemberServiceImpl implements MemberService {
 		list.add(mem1);
 		list.add(mem2);
 		return list;
+	}
+
+	@Override
+	public int sumOf(int x, int y) {
+		int sum = 0;
+		for(int i = 0; i <= (y - x); i++) {
+			sum += (x + i);
+		}
+		return sum;
 	}
 
 }
